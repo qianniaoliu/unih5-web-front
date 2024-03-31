@@ -1,6 +1,7 @@
 'use strict'
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -35,6 +36,15 @@ module.exports = {
     overlay: {
       warnings: false,
       errors: true
+    },
+    proxy: {
+      '/dev-api': {
+        target: 'http://120.24.5.151:8085', // 后端API服务器的地址
+        changeOrigin: true, // 是否改变源地址
+        pathRewrite: {
+          '^/dev-api': '' // 重写路径
+        }
+      }
     },
     before: require('./mock/mock-server.js')
   },
