@@ -89,6 +89,18 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/user/manage',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Form',
+        component: () => import('@/views/user/index'),
+        meta: { title: '用户管理', icon: 'form' }
+      }
+    ]
+  },
 
   {
     path: '/nested',

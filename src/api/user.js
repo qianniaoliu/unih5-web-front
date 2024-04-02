@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/vue-admin-template/user/login',
+    url: '/pc/user/login',
     method: 'post',
     data
   })
@@ -20,5 +20,12 @@ export function logout() {
   return request({
     url: '/vue-admin-template/user/logout',
     method: 'post'
+  })
+}
+export function addUser(req) {
+  return request({
+    url: '/pc/user/add',
+    method: 'post',
+    data: req
   })
 }
