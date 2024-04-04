@@ -4,7 +4,7 @@ export function login(data) {
   return request({
     url: '/pc/user/login',
     method: 'post',
-    data
+    data: data
   })
 }
 
@@ -27,5 +27,29 @@ export function addUser(req) {
     url: '/pc/user/add',
     method: 'post',
     data: req
+  })
+}
+
+export function updateUser(req) {
+  return request({
+    url: '/pc/user/update',
+    method: 'post',
+    data: req
+  })
+}
+
+export function deleteUser(req) {
+  return request({
+    url: '/pc/user/delete',
+    method: 'post',
+    data: req
+  })
+}
+
+export function queryUserPage(req) {
+  return request({
+    url: '/pc/user/query',
+    method: 'get',
+    params: req
   })
 }
